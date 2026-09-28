@@ -100,3 +100,23 @@ This work is supported by the NSF CCRI ENS Chipyard Award #2016662.
 [nvdla]: http://nvdla.org/
 [saturn]: https://github.com/ucb-bar/saturn-vectors
 [ara]: https://github.com/pulp-platform/ara
+
+
+## Step-by-step user guide
+
+Chipyard is a Linux-centered hardware design framework: the first successful run depends on the selected simulator, FPGA, or ASIC flow and its external toolchain.
+
+1. **Set up the host.** Follow the repository's [installation documentation](docs/Chipyard-Basics/) for a supported Linux distribution, Java/Scala and build tools, submodules, and the RISC-V software toolchain. Keep tool versions aligned with this checkout.
+2. **Learn the configuration model.** Read [Chipyard Basics](docs/Chipyard-Basics/) and inspect the generator configs under [generators](generators/). Choose a supplied configuration before editing Chisel or adding a custom generator.
+3. **Run a software RTL simulation.** Use the [simulation guide](docs/Simulation/) to configure and build the documented simulator, select a Chipyard configuration, run a software workload, and inspect its output and traces.
+4. **Change the SoC composition.** Add or configure cores, caches, memory systems, peripherals, or accelerators through the generator/configuration layers. Follow the [generator docs](docs/Generators/) and [TileLink/Diplomacy reference](docs/TileLink-Diplomacy-Reference/) when connecting components.
+5. **Use another flow when needed.** Follow [prototyping](docs/Prototyping/) for FPGA acceleration, [software](docs/Software/) for bare-metal/Linux workloads, and the relevant VLSI/Hammer guide for implementation.
+6. **Repeat with a recorded configuration.** Save the config name, source revision, simulator/FPGA flow, tool versions, and workload so area, timing, and performance comparisons are reproducible.
+
+### Functionality map
+
+- **SoC generation:** Chisel-based Rocket Chip, BOOM, CVA6, vector units, accelerators, caches, peripherals, and TileLink/Diplomacy connectivity.
+- **Execution:** software RTL simulation, FPGA-accelerated FireSim co-simulation, FPGA prototyping, and automated VLSI implementation flows.
+- **Software and experiments:** RISC-V bare-metal/Linux image generation, workload execution, test suites, waveform/debug and performance analysis.
+- The linked documentation sections are the user guide for each capability; component projects can also have their own manuals and tool constraints.
+
